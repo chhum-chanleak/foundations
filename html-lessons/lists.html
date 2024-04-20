@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link href="../css/lists_practice.css" rel="stylesheet" >
+    <title>Lists</title>
+
+    <style>
+      #stuffs li{
+        background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQX0hqTIZDCqTCd_x1AI3ab5ejpATowGM5AdEckC9OH8g&s') 0 50% no-repeat;
+        list-style: none;
+        padding: 12px;
+      }
+
+      #inline li{
+        display: inline-block;
+        margin: 0 12px;
+      }
+
+      #a li{
+        float: left;
+        margin: 0 24px;
+      }
+
+      #b{
+        float: left;
+      }
+    </style>
+
+  </head>
+
+  <body>
+
+    <!-- definition list -->
+    <dl>
+      <dt>
+        Fruits
+      </dt>
+      <dd>the sweet and fleshy product of a tree or other plant that contains seed and can be eaten as food.</dd>
+      <dt>Cat</dt>
+      <dd>The cat (Felis catus), commonly referred to as the domestic cat or house cat, is the only domesticated species in the family Felidae.</dd>
+    </dl>
+
+    <!-- unordered list -->
+    <ul>
+      <li>item 1</li>
+      <li>item 2</li>
+      <li>item 3</li>
+    </ul>
+
+    <!-- ordered list -->
+    <ol>
+      <li>item 1</li>
+      <li>item 2</li>
+      <li>item 3</li>
+    </ol>
+
+    <ol type="a">
+      <li>Letter a</li>
+      <li>Letter b</li>
+      <li>Letter c</li>
+    </ol>
+
+    <ol type="I">
+      <li>William The I</li>
+      <li>William The II</li>
+      <li>William The III</li>
+    </ol>
+
+    <ul>
+      <li>Khmer Brohok</li>
+      <li>Chicken Biryani</li>
+      <li>Japanese Curry</li>
+      <li>Türkiye Döner</li>
+      <li>Pad Thai</li>
+      <li>Vietnamese Phô</li>
+      <li>Indonesian Mi</li>
+      <li>Korean Kimchi</li>
+      <li>Chinese Sichuan Hotpot</li>
+    </ul>
+
+    <ol reversed>
+      <li>Make coffee</li>
+      <li>Feed the cats</li>
+      <li>Water the plants</li>
+      <li>Study</li>
+    </ol>
+
+    <ul>
+      <li>Tokyo, Japan</li>
+      <li>Moscow, Russia</li>
+      <li>Oslo, Norway</li>
+      <li>Buenos Aires, Argentina</li>
+    </ul>
+
+    <ol reversed>
+      <li>Resident Evil Series</li>
+      <li>Devil May Cry Series</li>
+      <li>Warhammer 4k: Dawn of War Series</li>
+      <li>Dota 1, 2</li>
+      <li>Farm Games</li>
+    </ol>
+
+    <ol>
+      <li>Resident Evil Series</li>
+      <li>Devil May Cry Series</li>
+      <li value="4">Warhammer 4k: Dawn of War Series</li>
+      <li>Dota 1, 2</li>
+      <li>Farm Games</li>
+    </ol>
+
+    <ul style="list-style: square;">
+      <li>
+        East Asia
+        <ol>
+          <li>China</li>
+          <li>Mongolia</li>
+          <li>Japan</li>
+          <li>Korea</li>
+        </ol>
+      </li>
+      <li>Americas</li>
+        
+      <li>
+        South Asia
+        <ol>
+          <li>India</li>
+          <li>Nepal</li>
+          <li>Sri Lanka</li>
+          <li>Pakistan</li>
+          <li>Bangladesh</li>
+        </ol>
+      </li>
+      <li>Europe</li>       
+    </ul>
+
+    <ul id="stuffs">
+      <li>Bike</li>
+      <li>Laptop</li>
+      <li>House</li>
+    </ul>
+
+    <ul style="list-style: lower-alpha inside;
+    display: inline-block;
+    margin: 0 10px;">
+      <li>item 1</li>
+      <li>item 2</li>
+      <li>item 3</li>
+    </ul>
+
+    <ul id="inline">
+      <li>item 1</li>
+      <li>item 2</li>
+      <li>item 3</li>
+    </ul>
+
+    <ul id="a">
+      <li>item 1</li>
+      <li>item 2</li>
+      <li>item 3</li>
+    </ul><br>
+
+    <ul id="b">
+      <li>item 1</li>
+      <li>item 2</li>
+      <li>item 3</li>
+    </ul>
+
+  </body>
+</html>
