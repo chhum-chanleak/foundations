@@ -15,3 +15,12 @@
 .main1 .list1 {
   color: #ff0000
 }
+
+#subsection2 {
+  background-color: #f3ff51;
+  color: #0000ff;
+}
+
+.main2 #subsection2 {
+  color: #ff0000;
+}
