@@ -24,3 +24,11 @@
 .main2 #subsection2 {
   color: #ff0000;
 }
+
+#parent {
+  color: #ff0000;
+}
+
+.child {
+  color: #0000ff;
+}
