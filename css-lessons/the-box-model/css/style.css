@@ -12,8 +12,19 @@ button {
 
 .One {
   background-color: #f00;
+  padding: 20px;
+  border: 20px solid #0ff;
+  margin: 20px;
+  height: 100px;
+  width: 100px;
 }
 
 .Two {
   background-color: #00f;
+  padding: 20px;
+  border: 20px solid #0ff;
+  margin: 40px;
+  height: 100px;
+  width: 100px;
+  box-sizing: border-box;
 }
