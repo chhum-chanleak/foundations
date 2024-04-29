@@ -4,3 +4,8 @@
   margin: auto;
   margin-top: 4rem;
 }
+
+button {
+  width: 8rem;
+  background-color: #f0f;
+}
