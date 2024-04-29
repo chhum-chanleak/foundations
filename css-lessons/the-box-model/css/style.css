@@ -9,3 +9,11 @@ button {
   width: 8rem;
   background-color: #f0f;
 }
+
+.One {
+  background-color: #f00;
+}
+
+.Two {
+  background-color: #00f;
+}
