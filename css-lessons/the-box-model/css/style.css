@@ -39,3 +39,12 @@ button {
   width: 40px;
   display: inline;
 }
+
+#secondP {
+  border-color: #aaa;
+  border-style: dotted;
+  border-top-color: #00f;
+  border-bottom-color: #f0f;
+  border-top-style: dashed;
+  border-right-style: double;
+}
