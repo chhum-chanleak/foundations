@@ -28,3 +28,14 @@ button {
   height: 100px;
   width: 100px;
 }
+
+.buttons button {
+  color: #0f0;
+  background-color: #ff00ff44;
+}
+
+#firstP {
+  height: 40px;
+  width: 40px;
+  display: inline;
+}
