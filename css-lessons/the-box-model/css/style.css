@@ -1,9 +1,14 @@
+*, 
+*::before, 
+*::after {
+  box-sizing: border-box;
+}
+
 * {
   outline: 2px solid red;
   width: 80%;;
   margin: auto;
   margin-top: 4rem;
-  box-sizing: border-box;
 }
 
 button {
