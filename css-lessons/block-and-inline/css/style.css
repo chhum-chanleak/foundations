@@ -1,0 +1,34 @@
+*, 
+*::before, 
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+div {
+
+  background-color: #aaa;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px dashed #f0f;
+  margin-bottom: 12px;
+}
+
+.introduction {
+  background-color: #ff000044;
+}
+
+.main-content {
+  background-color: #00ff0044;
+}
+
+.contact-us {
+  background-color: #0000ff44;
+}
+
