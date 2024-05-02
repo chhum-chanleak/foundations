@@ -68,3 +68,35 @@
   height: 40px;
   width: 60px;
 }
+
+.flex-container-three {
+  height: auto;
+  padding: 12px;
+  border: 4px solid turquoise;
+  margin-top: 12px;
+  display: flex;
+  gap: 12px;
+}
+
+.flex-container-three div{
+  height: 100px;
+  background-color: #ff000044;
+  width: 48%;
+  border: 4px solid chocolate;
+}
+
+.right {
+  display: flex;
+  padding: 12px;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.right div {
+  background-color: #f0f;
+  height: 46px;
+  width: 180px;
+}
+
+
