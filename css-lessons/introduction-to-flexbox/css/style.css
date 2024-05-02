@@ -1,0 +1,14 @@
+*, 
+*::before, 
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.flex-container div {
+  background-color: peachpuff;
+  width: 400px;
+  height: 200px;
+  border: 4px solid brown;
+}
