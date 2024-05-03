@@ -139,6 +139,12 @@
   align-items: center;
 }
 
+.subscribe, 
+.social {
+  align-self: flex-end;
+  margin-bottom: 1rem;
+}
+
 .photo-grid-container {
   display: flex;
   justify-content: center;
