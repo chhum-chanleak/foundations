@@ -184,3 +184,14 @@
   height: 200px;
   flex: 1;
 }
+
+.footer-item:nth-child(2) {
+  flex: 1;
+}
+
+.footer-one, 
+.footer-three {
+  background-color: #5995DA;
+  width: 300px;
+  flex: initial;
+}
