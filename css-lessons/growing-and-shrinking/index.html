@@ -19,5 +19,16 @@
     <div id="flex-auto">flex: auto (click to toggle raw box)</div>
     <div id="flex-initial">flex: initial</div>
   </div>
+
+  <script>
+
+    const flexAuto = document.getElementById("flex-auto");
+    const flexInitial = document.getElementById("flex-initial");
+    flexAuto.addEventListener("click", () => {
+      flexInitial.style.display =
+        flexInitial.style.display === "none" ? "block" : "none";
+    });
+
+  </script>
 </body>
 </html>
