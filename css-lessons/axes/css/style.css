@@ -5,3 +5,21 @@
   margin: 0;
   box-sizing: border-box;
 }
+
+.flex-container {
+  height: auto;
+  width: 90%;
+  border: 4px solid #ffa;
+  margin: 4rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.flex-container > * {
+  height: 4rem;
+  width: 100%;
+  background-color: #f08;
+  border: 4px dotted #aaa;
+  flex: auto;
+}
