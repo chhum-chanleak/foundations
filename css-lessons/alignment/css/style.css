@@ -25,3 +25,45 @@
   background-color: #aaa;
   min-width: 100px;
 }
+
+.container-one{
+  height : auto;
+  display: flex;
+  gap: 25px;
+  border: 4px solid #880488;
+  padding: 1rem;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: flex-end;
+  /* place-content : center flex-end; */
+}
+
+[class ^="box-"]{
+   width: 140px;
+   height: 140px;
+   background-color: skyblue;
+   border: 2px solid black;
+
+/* To view the letter better */
+   font-size: 65px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.container-one div:nth-child(2) {
+  align-self: center;
+}
+
+.box-1 {
+  flex-grow: 1;
+}
+
+.box-2 {
+  flex-grow: 2 1 30em;
+}
+
+.box-3 {
+  flex-grow: 1;
+}
+
