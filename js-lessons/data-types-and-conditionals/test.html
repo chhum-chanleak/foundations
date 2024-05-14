@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test</title>
+</head>
+<body>
+
+  <label for="choice">Select an option</label>
+  <select id="choice">
+    <option>Opt an option</option>
+    <option value="cold">Cold</option>
+    <option value="hot">Hot</option>
+    <option value="rain">Rain</option>
+  </select>
+
+  <p></p>
+
+  <script>
+
+    const choice = document.getElementById('choice');
+    const para = document.querySelector('p');
+
+    choice.addEventListener("change", advice);
+
+    function advice() {
+
+      const weather = choice.value;
+
+      switch (weather) {
+        case 'cold':
+          para.textContent = `Wear extra thick clothes.`;
+          break;
+
+        case 'hot':
+          para.textContent = `Apply sunscreen.`;
+          break;
+        
+        case 'rain':
+          para.textContent = `Find shelter.`;
+          break;
+      }
+
+    }
+
+  </script>
+</body>
+</html>
