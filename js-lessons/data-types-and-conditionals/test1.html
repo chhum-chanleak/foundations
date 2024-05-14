@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test1</title>
+</head>
+<body id="body">
+
+  <label for="themes">Select theme: </label>
+  <select id="themes">
+    <option value="white">White</option>
+    <option value="black">Black</option>
+  </select>
+
+
+  <script>
+
+    const select = document.querySelector('select');
+
+    select.addEventListener("change", darkTheme);
+
+    function darkTheme () {
+
+      const option = select.value;
+      const body = document.getElementById('body');
+
+      if (option === 'black') {
+        body.style.backgroundColor = `black`;
+        body.style.color = `white`;
+      } else {
+        body.style.backgroundColor = `white`;
+        body.style.color = `black`;
+      }
+
+    }
+
+  </script>
+</body>
+</html>
