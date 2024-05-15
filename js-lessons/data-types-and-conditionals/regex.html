@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Regular Expression</title>
+</head>
+<body>
+
+
+  <script>
+    
+    const re = /ab+c/;
+
+    const re1 = new RegExp("ab+c");
+
+    const myRe = /d(b+)d/g;
+    const myArray = myRe.exec("cdbbdbsbz");
+    console.log(myArray);
+
+    const myRe1 = new RegExp('d(b+)d', 'g');
+    const myArray1 = myRe.exec("cdbbdbsbz");
+
+  </script>
+</body>
+</html>
