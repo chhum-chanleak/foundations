@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Developer Tools</title>
+</head>
+<body>
+  <div class="container">
+
+    <p onclick="makeGreen()">Break Down</p>
+
+  </div>
+  
+  <script>
+
+    document.querySelector('p').style.cursor = 'pointer';
+
+    function makeGreen() {
+      
+      const para = document.querySelector('p');
+      const paraStyle = para.style;
+
+      paraStyle.cursor = 'pointer';
+      paraStyle.color = '#0f0';
+      paraStyle.fontSize = '32px';
+
+
+    }
+
+  </script>
+</body>
+</html>
