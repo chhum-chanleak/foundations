@@ -40,6 +40,7 @@
 
     }
 
+    // Callback functions
     function ask(question, yes, no) {
       if (confirm(question)) {
         yes();
@@ -57,6 +58,11 @@
     }
 
     ask("Do you agree ?", showOk, showCancel);
+
+    // Arrow functions
+    const sum = (a, b) => a + b;
+    alert(sum(1, 2));
+
   </script>
 </body>
 </html>
