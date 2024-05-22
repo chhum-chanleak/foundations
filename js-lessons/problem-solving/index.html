@@ -18,20 +18,24 @@
     }
 
     // fizzbuzz
+    let limitCount = +prompt("Enter limited number of counts: ", 100);
     let count = 1;
-   while (count < 100) {
-      if ((count % 3) === 0 && (count % 5) !== 0) {
-          console.log('fizz');
-      } else if ((count % 5) === 0 && (count % 3) !== 0) {
-          console.log("buzz");
-      } else if (((count % 3) === 0) && ((count % 5) === 0)) {
-          console.log("fizzbuzz");
-      } else {
-          console.log(count);
-      }
 
-    count += 1;
-}
+    if (limitCount <= 0) {
+        let limitCount = +prompt("Please enter numbers that is greater than 0");
+    } else {
+        while (count < limitCount) {
+            if ((count % 3 === 0) && (count % 5) !== 0) {
+                console.log("fizz");
+            } else if (((count % 3 !== 0) && (count % 5) === 0)) {
+                console.log("buzz");
+            } else if (((count % 3 === 0) && (count % 5) === 0)) {
+                console.log('fizzbuzz');
+            }  else {
+                console.log(count);
+            }
+        }
+    }
   </script>
 </body>
 </html>
