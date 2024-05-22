@@ -7,7 +7,31 @@
 </head>
 <body>
   
-  
+  <script>
 
+    let num = +prompt("Enter a number: ");
+    let counter = 0;
+
+    while (count < num) {
+      counter += 1;
+      console.log(counter);
+    }
+
+    // fizzbuzz
+    let count = 1;
+   while (count < 100) {
+      if ((count % 3) === 0 && (count % 5) !== 0) {
+          console.log('fizz');
+      } else if ((count % 5) === 0 && (count % 3) !== 0) {
+          console.log("buzz");
+      } else if (((count % 3) === 0) && ((count % 5) === 0)) {
+          console.log("fizzbuzz");
+      } else {
+          console.log(count);
+      }
+
+    count += 1;
+}
+  </script>
 </body>
 </html>
