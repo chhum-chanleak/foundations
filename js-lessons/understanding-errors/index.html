@@ -27,6 +27,26 @@
       console.log(e.name); // "ReferenceError"
       console.log(e.stack); // Stack of the error
     }
+
+    // Catching a SyntaxError
+    try {
+      eval("hoo bar");
+    } catch (e) {
+      console.log(e instanceof SyntaxError); // true
+      console.log(e.message);
+      console.log(e.name); // "SyntaxError"
+      console.log(e.stack); // Stack of the error
+    }
+
+    // Creating a SyntaxError
+    try {
+      throw new SyntaxError("Hello");
+    } catch (e) {
+      console.log(e instanceof SyntaxError); // true
+      console.log(e.message); // "Hello"
+      console.log(e.name); // "SyntaxError"
+      console.log(e.stack); // Stack of the error
+    }
   </script>
 </body>
 </html>
