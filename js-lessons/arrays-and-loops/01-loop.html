@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loop 1</title>
+</head>
+<body>
+
+  <div class="output"></div>
+
+<script>
+
+  const countDownToZero = (count) => {
+
+    while (count >= 0) {
+      const para = createPara();
+      para.textContent = '';
+
+      const output = getQuerySelector('.output');
+      output.appendChild(para);
+
+      if (count === 10) {
+        para.textContent = `Countdown ${count}`;
+      } else if (count === 0) {
+        para.textContent = 'Blast off!'
+      } else {
+        para.textContent = `${count}`;
+      }
+    
+      count -= 1;
+    }
+
+  };
+
+  const createPara = () => {
+
+    const para = document.createElement('p');
+    return para;
+  };
+
+  const getQuerySelector = (selector) => {
+
+    const querySelector = document.querySelector(selector);
+    return querySelector;
+  };
+
+  countDownToZero(10);
+
+</script>  
+</body>
+</html>
