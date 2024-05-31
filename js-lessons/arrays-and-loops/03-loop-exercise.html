@@ -6,6 +6,34 @@
   <title>List items</title>
 </head>
 <body>
+
+  <ul>
+
+  </ul>
   
+  <script>
+
+    const fruits = ['Apple','Banana', 'Cherry', 'Date'];
+
+    const showFruits = (fruits) => {
+      let totalFruits = fruits.length;
+
+      for (let i = 0; i < totalFruits; i += 1) {
+        let fruit = fruits[i];
+        generateListItem(fruit);        
+      }
+    };
+
+    const generateListItem = (item) => {
+      const unorderedList = document.querySelector('ul');
+      const listItem = document.createElement('li');
+
+     listItem.textContent = `${item}`
+     return unorderedList.appendChild(listItem);      
+    };
+
+    showFruits(fruits);
+
+  </script>
 </body>
 </html>
