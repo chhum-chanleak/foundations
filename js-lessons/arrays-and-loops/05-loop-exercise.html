@@ -6,6 +6,36 @@
   <title>Prime</title>
 </head>
 <body>
-  
+
+  <script>
+
+    for (let i = 500; i >= 2; i -= 1) {
+      const body = document.querySelector('body');
+      const createPara = document.createElement('p');
+
+      if (!isPrime(i)) {
+        continue;
+      }
+      body.appendChild(createPara);
+      createPara.textContent = `${i} is a prime number.`;
+    }
+
+    function isPrime(number) {
+      // Input validation (optional): Check if the number is a positive integer
+      if (number <= 1) {
+        return false; // 0 or 1 are not prime
+      }
+      
+      // Iterate only up to the square root of the number (optimization)
+      for (let i = 2; i <= Math.sqrt(number); i++) {
+        if (number % i === 0) {
+          return false; // If a divisor is found, it's not prime
+        }
+      }
+      // If no divisors found, the number is prime
+      return true;
+    }
+
+  </script>
 </body>
 </html>
