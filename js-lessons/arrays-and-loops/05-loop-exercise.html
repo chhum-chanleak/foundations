@@ -23,16 +23,15 @@
     function isPrime(number) {
       // Input validation (optional): Check if the number is a positive integer
       if (number <= 1) {
-        return false; // 0 or 1 are not prime
+        return false; 
       }
       
       // Iterate only up to the square root of the number (optimization)
       for (let i = 2; i <= Math.sqrt(number); i++) {
         if (number % i === 0) {
-          return false; // If a divisor is found, it's not prime
+          return false; 
         }
       }
-      // If no divisors found, the number is prime
       return true;
     }
 
