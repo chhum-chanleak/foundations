@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Name and Phone Number</title>
+</head>
+<body>
+  
+  <pre class='name'></pre>
+
+  <script>
+    
+    const getPhoneNumber = (name, persons) => {
+      let totalPersons = persons.length;
+
+      for (let i = 0; i < totalPersons; i += 1) {
+        let person = persons[i];
+
+        if (name === person.name) {
+          return `Name: ${person.name} \nPhone Number: ${person .phoneNumber}`
+        } else {
+          continue;
+        }
+      }
+
+      return `"${name}" cannot be found.`;
+    };
+
+    const employees = [
+      {
+        name: 'Ahmed',
+        phoneNumber: '012'
+      }, 
+      {
+        name: 'Bobby',
+        phoneNumber: '013'
+      }
+    ];
+
+    const para = document.querySelector('.name');
+    para.textContent = `${getPhoneNumber('Bobby', employees)}`;
+
+  </script>
+</body>
+</html>
