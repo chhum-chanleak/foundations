@@ -6,14 +6,51 @@
   <title>Guest list</title>
 </head>
 <body>
+
+  <p class="invited">Invited: </p>
+  <p class="refused">Refused: </p>
+
   <script>
-    const showGuest = (guests) => {
+    const showGuests = (guests) => {
+      let totalGuests = guests.length;
+      let notInvitedGuests = refuseGuests(guests);
+      let invitedPara = document.querySelector('.invited');
+      let refusedPara = document.querySelector('.refused');
+      console.log(guests.join(', '));
+
+      for (let i = 0; i < totalGuests; i += 1) {
+        let guest = guests[i];
+        
+        if (guest === 'Lola') {
+          refusedPara.textContent += `${guest}, `;
+        } else if (guest === 'Phil') {
+          refusedPara.textContent += `${guest}, `;
+        } else {
+          invitedPara.textContent += `${guest}, `;
+        }
+      }
+      
+    };
+
+    const refuseGuests = (guests) => {
+      let refusedGuests = [];
       let totalGuests = guests.length;
 
       for (let i = 0; i < totalGuests; i += 1) {
         let guest = guests[i];
+
+        if(guest === 'Lola') {
+        refusedGuests.push(guest);
+        } else if (guest === 'Phil') {
+          refusedGuests.push(guest);
+        }
       }
+      return refusedGuests;
     };
+
+    let guestList = ['Rotha', 'Lola', 'Ahmed', 'Rohit', 'Chen', 'Phil'];
+
+    showGuests(guestList);
   </script>
 </body>
 </html>
