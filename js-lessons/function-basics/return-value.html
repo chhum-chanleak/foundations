@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Function library example</title>
+  <style>
+    input {
+      font-size: 2em;
+      margin: 10px 1px 0;
+    }
+  </style>
+  </head>
+<body>
+
+  <input class="numberInput" type="text">
+  <p></p>
+
+  <script>
+    const input = document.querySelector('.numberInput');
+    const para = document.querySelector('p');
+
+    function squared(num) {
+      
+      return isNumber(num) && num * num;
+    }
+
+    function cubed(num) {
+      return (num * num * num).toFixed(2);
+    }
+
+    function factorial(num) {
+      if (num < 0) return undefined;
+      if (num === 0) return 1;
+      let x = num - 1;
+      while (x > 1) {
+        num *= x;
+        x--;
+      }
+      return num;
+    }
+
+    const getSqrt = (num) => {
+
+      return Math.sqrt(num).toFixed(2);
+
+    };
+
+    const getCbrt = (num) => Math.cbrt(num).toFixed(2);
+
+    const getCircumference = (radius) => (2 * 3.14 * radius).toFixed(2);
+
+    const isNumber = (num) => {
+
+      if (isNaN(num)) {
+        throw new TypeError("num is not a number. Please input number only.")
+    }
+
+    return true;
+  }
+
+    input.addEventListener("change", () => {
+    const num = parseFloat(input.value);
+    if (isNaN(num)) {
+      para.textContent = "You need to enter a number!";
+    } else {
+      para.textContent = `${num} squared is ${squared(num)}. `;
+      para.textContent += `${num} cubed is ${cubed(num)}. `;
+      para.textContent += `${num} factorial is ${factorial(num)}. `;
+      para.textContent += `${num} square root is ${getSqrt(num)}. `;
+      para.textContent += `${num} cube root is ${getCbrt(num)}. `;
+      para.textContent += `${num} radius has circumference of ${getCircumference(num)}. `;
+    }
+    });
+
+  </script>
+</body>
+</html>
