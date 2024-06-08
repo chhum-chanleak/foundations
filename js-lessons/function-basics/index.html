@@ -8,6 +8,19 @@
 <body>
   
   <script>
+
+    const add7 = (num) => {
+          if (isNaN(num)) {
+            alert("Enter number only.");
+          }
+
+          return num + 7;
+        };
+
+        function showCancel(){
+      alert("You canceled the execution.");
+    }
+
     console.log('Hello');
     const x = 1;
 
@@ -53,15 +66,11 @@
       alert("You agreed.");
     }
 
-    function showCancel(){
-      alert("You canceled the execution.");
-    }
-
     ask("Do you agree ?", showOk, showCancel);
 
     // Arrow functions
-    const sum = (a, b) => a + b;
-    alert(sum(1, 2));
+    const sum1 = (a, b) => a + b;
+    alert(sum1(1, 2));
 
     // Return the last letter of a string.
     const lastLetter = (string) => {
