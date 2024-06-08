@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Script</title>
+</head>
+<body>
+  <script>
+    const add7 = (num) => {
+
+      if (isNaN(num)) {
+        alert("You must enter a number.");
+      } else {
+        alert(num + 7);
+      }      
+    };
+
+    const getProduct = (num, num2) => num * num2;
+
+    const capitalize = (string) => {
+      let lowerCasedString = string.toLowerCase();
+      let firstChar = lowerCasedString[0];
+      let result = lowerCasedString.replace(firstChar, firstChar.toUpperCase());
+      
+      return result;
+    };
+
+    const getLastChar = (string) => string[string.length - 1];
+
+    alert(capitalize("it's very nice to meet you."));
+    alert(getLastChar("John"));
+
+  </script>
+</body>
+</html>
