@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fizz Buzz</title>
+</head>
+<body>
+  <script>
+    const fizzBuzz = (num) => {
+      
+      // check if num is a number, if not, print a message and stop the function
+      if (isNaN(num) || num === 0) {
+        console.log("Enter number that is greater than 0 only.")
+        return;
+      }
+
+      if (num > 0) {
+        for (let i = 1; i <= num; i += 1) {
+
+          if (i % 3 === 0 && i % 5 === 0) {
+            console.log("FizzBuzz");
+          } else if (i % 3 === 0) {
+            console.log("Fizz")
+          } else if (i % 5 === 0) {
+            console.log("Buzz")
+          } else {
+            console.log(i);
+          }
+        }
+      }       
+    };
+
+    fizzBuzz("love");
+  </script>
+</body>
+</html>
