@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guest List</title>
+</head>
+<body>
+
+  <p class="admit">Admit: </p>
+  <p class="refuse">Refuse: </p>
+
+  <script>
+
+    // Get all the invited guests
+    const inviteGuests = (nameList, ...guestsToRefuse) => {
+      let refusedGuests = [];
+
+      for (let i = 0; i < nameList.length; i += 1) {
+        for (let j = 0; j < guestsToRefuse.length; j += 1) {
+          if (nameList[i] === guestsToRefuse[j]) {
+            refusedGuests.push(nameList[i]);
+          }
+        }
+      }
+
+      return refusedGuests;
+    } ;
+
+    // Refuse all the uninvited guests
+    const refuseGuests = (nameList, ...guestsToInvite) => {
+      let invitedGuests = [];
+
+      for (let i = 0; i < nameList.length; i += 1) {
+        for (let j = 0; j < guestsToInvite.length; j += 1) {
+          if (nameList[i] === guestsToInvite[j]) {
+            invitedGuests.push(nameList[i]);
+          }
+        }
+      }
+
+      return invitedGuests;
+    } ;
+
+    const guests = ['Angela', 'Boruto', 'Chen', 'Dara', 'Emre'];
+    const admitPara = document.querySelector('.admit');
+    const refusePara = document.querySelector('.refuse');
+    const admittedGuests = inviteGuests(guests, 'Chen', 'Angela');
+    const refusedGuests = refuseGuests(guests, 'Boruto', 'Emre');
+
+    for (let i = 0; i < admittedGuests.length; i += 1) {
+      admitPara.textContent += `${admittedGuests[i]}, `;
+    }
+
+    for (let i = 0; i < refusedGuests.length; i += 1) {
+      refusePara.textContent += `${refusedGuests[i]}, `;
+    }
+
+  </script>
+</body>
+</html>
