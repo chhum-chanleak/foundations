@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Function library example</title>
+  <style>
+    input {
+      font-size: 2em;
+      margin: 10px 1px 0;
+    }
+  </style>
+  </head>
+<body>
+
+  <input class="numberInput" type="text">
+  <pre></pre>
+
+  <script>
+    const input = document.querySelector('.numberInput');
+    const prePara = document.querySelector('pre');
+
+    const squared = (num) => isNumber(num) ? num * num : `"${num}" is not a number.`;
+
+    const cubed = (num) => isNumber(num) ? num * num * num : `"${num}" is not a number.`;
+
+    function factorial(num) {
+
+      if (isNumber(num)) {
+        if (num < 0) return undefined;
+        if (num === 0) return 1;
+        let x = num - 1;
+        while (x > 1) {
+          num *= x;
+          x--;
+        }
+        return num;
+       } else {
+        return `"${num}" is not a number.`;
+       }
+    }
+
+    const getSquareRoot = (num) => (isNumber(num)) ? +(Math.sqrt(num).toFixed(2)) : `"${num}" is not a number.`;
+
+    const getCubeRoot = (num) => (isNumber(num)) ? +(Math.cbrt(num).toFixed(2)) : `"${num}" is not a number.` ;
+
+    const getCircumference = (radius) => (isNumber(radius)) ? +((2 * 3.14 * radius).toFixed(2)) : `"${radius}" is not a number.`;
+
+    const isNumber = (num) => (typeof(num) === 'number')
+
+    input.addEventListener("change", () => {
+    const num = parseFloat(input.value);
+    if (isNaN(num)) {
+      prePara.textContent = "You need to enter a number!";
+    } else {
+      prePara.textContent = `${num} squared is ${squared(num)}. \n`;
+      prePara.textContent += `${num} cubed is ${cubed(num)}. \n`;
+      prePara.textContent += `${num} factorial is ${factorial(num)}. \n`;
+      prePara.textContent += `Square root of ${num} is ${getSquareRoot(num)}. \n`;
+      prePara.textContent += `Cube root of ${num} is ${getCubeRoot(num)}. \n`;
+      prePara.textContent += `Circumference of ${num} radius is ${getCircumference(num)}. \n`;
+    }
+    });
+
+  </script>
+</body>
+</html>
