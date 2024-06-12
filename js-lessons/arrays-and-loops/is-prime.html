@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Loops: Task 3</title>
+    <style>
+      p {
+        color: purple;
+        margin: 0.5em 0;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+    </style>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+
+  <body>
+
+    <section class="preview">
+
+
+
+    </section>
+
+  </body>
+  <script>
+    let i = 500;
+    const section = document.querySelector('section');
+
+    function isPrime(num) {
+      for(let i = 2; i < num; i++) {
+        if(num % i === 0) {
+          return false;
+        }
+      }
+
+      return true;
+    }
+
+    const showPrimes = (num) => {
+      for (let j = 2; j <= 500; j += 1) {
+        const para = document.createElement('p');
+        if (isPrime(j)) {
+          para.textContent = `${j} is prime number.`;
+          section.appendChild(para);
+        } else {
+          para.textContent = `${j}`;
+          section.appendChild(para);
+        }
+      }
+    };
+
+
+    // Add your code here
+
+    showPrimes(i);
+
+    // Don't edit the code below here!
+
+  </script>
+
+</html>
