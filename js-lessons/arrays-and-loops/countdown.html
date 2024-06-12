@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Countdown</title>
+</head>
+<body>
+
+  <div>
+
+  </div>
+
+  <script>
+
+    const countdown = (startNumber) => {
+      const container = document.querySelector('div');
+
+      for (i = startNumber; i >=0; i -= 1) {
+        const para = document.createElement('p');
+
+        if (i === 0) {
+          para.textContent = `Blast off!`;
+          container.appendChild(para);
+        } else {
+          para.textContent = `${i}`;
+          container.appendChild(para);
+        }       
+      }
+    }
+    
+    countdown(10);
+
+  </script>
+</body>
+</html>
