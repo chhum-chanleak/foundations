@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dom Manipulation and Events</title>
+</head>
+<body>
+
+  <body>
+    <h1>THE TITLE OF YOUR WEBPAGE</h1>
+    <div id="container"></div>
+  </body>
+
+  <script>
+    const sum = (x, y, z) => x + y + z;;
+
+    const numbers = [1, 2, 3];
+    const moreNum = [3, 2, ...numbers, 5];
+
+    let fruits0 = ['apple', 'banana']
+
+    fruits0 = fruits0.concat(numbers);
+
+    fruits0 = [...fruits0];
+
+    sum(...numbers);
+
+    const isSummer = false;
+    const fruits1 = {
+      apple: 10,
+      banana: 5,
+      ...(isSummer ? { watermelon: 30 } : {}),
+    };
+
+    const isSummer1 = false;
+    const fruit2s = ["apple", "banana", ...(isSummer1 ? ["watermelon"] : [])];
+    // ['apple', 'banana']
+
+    const obj1 = { foo: "bar", x: 42 };
+    Object.assign(obj1, { x: 1337 });
+    console.log(obj1); // { foo: "bar", x: 1337 }
+
+       // your JavaScript file
+    const container = document.querySelector("#container");
+
+    const content = document.createElement("div");
+    content.classList.add("content");
+    content.textContent = "This is the glorious text-content!";
+
+    container.appendChild(content);
+    
+  </script>
+</body>
+</html>
