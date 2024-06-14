@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mouse Event</title>
+</head>
+<body>
+  
+  <button id="btn">Click Me!</button>
+  <button id="two">Click Me! 2</button>
+  <button id="test">Buttons test</button>
+
+  <p id="message"></p>
+
+  <script>
+
+    const button = document.querySelector('button');
+    const button2 = document.querySelector('#two');
+    const testButton = document.querySelector('#test');
+    const para = document.querySelector('#message');
+
+    const grow = (e) => button.style.cssText = 'padding: 2rem;';
+
+    const shrink = (e) => button.style.cssText = 'padding: 0;';
+
+    const showMessage = (e) => {
+      console.log('Click Me! 2 is clicked.');
+    };
+
+    const disableContextMenu = (e) => {
+      e.preventDefault();
+    };
+
+    const identifyButton = (e) => {
+      switch (e.button) {
+        case 0: 
+          para.textContent = 'Left mouse button is clicked.';
+          break;
+
+        case 1: 
+          para.textContent = 'Middle mouse button is clicked.';
+          break;
+
+        case 2: 
+          para.textContent = 'Right mouse button is clicked.';
+          break;
+
+        default: 
+          para.textContent = 'Which mouse button is clicked?';
+      }
+    };
+
+    button.addEventListener('mouseenter', grow);
+    button.addEventListener('mouseleave', shrink);
+    button2.addEventListener('mouseup', showMessage);
+
+    testButton.addEventListener('contextmenu', disableContextMenu);
+
+    testButton.addEventListener('mouseup', identifyButton)
+
+  </script>
+</body>
+</html>
