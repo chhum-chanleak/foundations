@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Events</title>
+</head>
+
+<style>
+  .container {
+    background-color: #f0f;
+  }
+</style>
+
+<body>
+
+  <div class="container">
+    <button id="btn">Click Me!</button>
+    <a href="https://www.javascripttutorial.net/">JS Tutorial</a>
+  </div>
+
+  <script>
+    const button = document.querySelector('button');
+    const link = document.querySelector('a');
+
+    link.addEventListener('click', (e) => {
+      console.log('clicked');
+      e.preventDefault();
+      e.stopPropagation();
+    });
+
+    const handleClickMe = (e) => {
+      alert("It was clicked.");
+    };
+
+    button.addEventListener('click', handleClickMe, true);
+
+    document.body.addEventListener('click', () => {
+      console.log('The body was clicked!');
+    });
+  </script>  
+</body>
+</html>
