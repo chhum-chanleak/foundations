@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arithmetic Series</title>
+</head>
+<body>
+  <script>
+
+    // Return last term of the arithmetic series
+    const getLastTerm = (numberOfTerms) => {
+    let total;
+    for (let i = 1; i <= numberOfTerms; i += 1) {
+        total = (6 * i) - 105;
+    }
+    return total;
+    };
+
+    // Pass the number of terms and get the total sum
+    const sumOfTerms = (numberOfTerms) => {
+    let firstTerm = getLastTerm(1);
+    let lastTerm = getLastTerm(numberOfTerms);
+    
+    return ((firstTerm + lastTerm) / 2) * 38;
+    };
+  </script>
+</body>
+</html>
