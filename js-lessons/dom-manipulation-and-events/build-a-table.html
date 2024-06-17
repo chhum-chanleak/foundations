@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="build-a-table.css">
+  <title>Build A Table</title>
+</head>
+<body>
+
+
+  <h1>Mountains</h1>
+
+<div id="mountains">
+  <table border="1">
+
+  </table>
+</div>
+  
+  <script>
+
+  const MOUNTAINS = [ 
+    {name: "Kilimanjaro", height: 5895, place: "Tanzania"},
+    {name: "Everest", height: 8848, place: "Nepal"},
+    {name: "Mount Fuji", height: 3776, place: "Japan"},
+    {name: "Vaalserberg", height: 323, place: "Netherlands"},
+    {name: "Denali", height: 6168, place: "United States"},
+    {name: "Popocatepetl", height: 5465, place: "Mexico"},
+    {name: "Mont Blanc", height: 4808, place: "Italy/France"}
+  ];
+
+  // Show an array of mountains name, height, and place after having been inputted an array of objects
+
+  const showAllRows = (obj) => {
+    const div = document.querySelector('#mountains');
+    const table = document.querySelector('table');
+
+    showTableHead(div, table, obj);
+
+    for (let i = 0; i < obj.length; i += 1) {
+      const tr = document.createElement('tr');
+      const td1 = document.createElement('td');
+      const td2 = document.createElement('td');
+      const td3 = document.createElement('td');
+
+      td1.textContent = `${obj[i].name}`;
+      td2.textContent = `${obj[i].height}`;
+      td3.textContent = `${obj[i].place}`;
+
+      tr.appendChild(td1);
+      tr.appendChild(td2);
+      tr.appendChild(td3)
+      table.appendChild(tr);
+    }
+   
+    div.appendChild(table);
+  };
+
+  const showTableHead = (div, table, obj) => {
+    const tr = document.createElement('tr');
+    const th1 = document.createElement('th');
+    const th2 = document.createElement('th');
+    const th3 = document.createElement('th');
+
+    th1.textContent = Reflect.ownKeys(obj[0])[0];
+    th2.textContent = Reflect.ownKeys(obj[0])[1];
+    th3.textContent = Reflect.ownKeys(obj[0])[2];
+
+    tr.appendChild(th1);
+    tr.appendChild(th2);
+    tr.appendChild(th3);
+
+    table.appendChild(tr);
+    div.appendChild(table);
+  };
+
+  showAllRows(MOUNTAINS);
+  </script>
+</body>
+</html>
