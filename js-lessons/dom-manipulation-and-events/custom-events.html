@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom Events</title>
+</head>
+<body>
+
+  <p>Hello, world!</p>
+  <div class="note">JS Custom Event Demo</div>
+  <div class="note2">JS Custom Event Demo 2</div>
+
+  <script>
+
+    const para = document.querySelector('p');
+    const note = document.querySelector('.note');
+    const note2 = document.querySelector('.note2');
+    const event = new CustomEvent('highlight2', {
+      detail: {
+        backgroundColor: '#f0f' // purple
+      }
+    });
+
+    const highlight  = (elem, callback) => {
+      const bgColor = 'Yellow';
+      elem.style.backgroundColor = bgColor;
+
+      if (callback && typeof callback === 'function') {
+        callback(elem);
+      }
+    };
+
+    const highlight2  = (elem) => {
+      const bgColor = 'Yellow';
+      const event = new CustomEvent('highlight', {
+        detail: {
+          backgroundColor: bgColor
+        }
+      });
+      elem.style.backgroundColor = bgColor;
+
+    };
+
+    const addBorder = (elem) => {
+      elem.style.border = '1px solid red';
+      console.log(this);
+    };
+
+    // Listen to the highlight event
+    note2.addEventListener('highlight', (e) => {
+      addBorder(this);
+
+      // highlight div element
+      console.log(e.detail);
+    });
+
+    highlight(note2);
+  </script>  
+</body>
+</html>
