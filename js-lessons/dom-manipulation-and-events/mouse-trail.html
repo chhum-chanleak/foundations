@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mouse Trail</title>
+
+  <style>
+
+    *,
+    *::before,
+    *::after {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+  </style>
+
+</head>
+<body>
+  
+  <script>
+
+    // Show current mouse coordinates
+    const getViewPortCoordinates = (event) => {
+      const x = event.clientX;
+      const y = event.clientY;
+      let coordinates = [x, y];
+      
+      return coordinates;
+    };
+
+    const applyDot = (event) => {      
+      const body = document.body;
+      const colorDot = document.createElement('div');
+      const coordinates = [...getViewPortCoordinates(event)];
+      const x = coordinates[0];
+      const y = coordinates[1];
+
+      colorDot.style.cssText = 'width: 12px; height: 12px; background-color: purple; border-radius: 50%; position: absolute;';
+      colorDot.style.left = `${x}px`;
+      colorDot.style.top = `${y}px`;
+
+      body.appendChild(colorDot);
+    };
+
+    const checkEventType = (event) => {
+      if (event.type === 'mousedown' && event.type === 'mousemove') {
+        applyDot(event);
+      } 
+    };
+
+    const reset = () => {
+      window.location.reload();
+    };
+
+    document.addEventListener('mousedown', applyDot);
+    document.addEventListener('mousemove', applyDot);
+
+    document.querySelector('.reset').addEventListener('click', reset);
+
+
+  </script>
+</body>
+</html>
