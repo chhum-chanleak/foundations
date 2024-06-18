@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="balloon.css">
+  <title>Balloon</title>
+</head>
+<body>
+  <p>🎈</p>
+
+  <script>
+
+    const getFontSize = () => {
+      const para = document.querySelector('p');
+      const fontSize = window.getComputedStyle(para).fontSize;
+      return fontSize;
+    };
+
+    const grow = (event, fontSize) => {
+      fontSize = getFontSize();
+      const para = document.querySelector('p');
+      const percentage = 0.1;
+
+      if (parseFloat(getFontSize()) > 450) {
+        para.textContent = '💥';
+      } else if (event.key === 'ArrowUp') {
+        para.style.fontSize = `calc(${parseInt(fontSize)}px + ${percentage * parseInt(fontSize)}px)`
+      }
+    };
+
+    const shrink = (event, fontSize) => {
+      fontSize = getFontSize();
+      const para = document.querySelector('p');
+      const percentage = 0.1;
+      if (event.key === 'ArrowDown' && parseInt(fontSize) > 12) {
+        para.style.fontSize = `calc(${parseInt(fontSize)}px - ${percentage * parseInt(fontSize)}px)`
+      } else if (para.textContent === '💥' && parseInt(fontSize) < 16) {
+        para.textContent = '🎈';
+      }
+    };
+
+    document.addEventListener('keydown', (event) => {
+
+      if (event.key === 'ArrowUp') {
+        document.addEventListener('keydown', grow);
+      } else if (event.key === 'ArrowDown') {
+        document.addEventListener('keydown', shrink);
+      }
+    });
+
+    const para = document.querySelector('p');
+    const fontSize = window.getComputedStyle(para).fontSize;
+
+    console.log(getFontSize());
+  </script>
+</body>
+</html>
