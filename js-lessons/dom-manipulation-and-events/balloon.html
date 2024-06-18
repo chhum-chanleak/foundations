@@ -11,12 +11,15 @@
 
   <script>
 
+    // Return current font-size of <p>
     const getFontSize = () => {
       const para = document.querySelector('p');
       const fontSize = window.getComputedStyle(para).fontSize;
       return fontSize;
     };
 
+    // Set the text content to '💥' when the current font-size exceed 450 or
+    // increase current font-size when user clicks ArrowUp key
     const grow = (event, fontSize) => {
       fontSize = getFontSize();
       const para = document.querySelector('p');
@@ -29,6 +32,9 @@
       }
     };
 
+    // Set the text content to '🎈' when the current font-size is less than 16px 
+    // and <p> text content is '💥'. Or decrease current font-size when user 
+    // clicks ArrowDown key and current font-size is greater than 12px
     const shrink = (event, fontSize) => {
       fontSize = getFontSize();
       const para = document.querySelector('p');
