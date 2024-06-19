@@ -7,12 +7,12 @@
 </head>
 <body>
   <div class="parent">
-    <p></p>
-    <button></button>
-    <button></button>
-    <button></button>
-    <a href=""></a>
-    <a href=""></a>
+    <p>paragraph 1</p>
+    <button>button 1</button>
+    <button>button 2</button>
+    <button>button 3</button>
+    <a href="">link 1</a>
+    <a href="">link 2</a>
   </div>
 
   <script>
@@ -20,6 +20,21 @@
     // Get child nodes when inputted a parent node
     const getChildrenNode = (parentNode) => {
       return parentNode.children;
+    };
+
+    // Select nth child of a parent node
+    const getNthChild = (parentNode, nthChild) => {
+      const children = Array.from(getChildrenNode(parentNode));
+      let child;
+
+      for(let i = 0; i < children.length; i += 1) {
+
+        if ((i + 1) === nthChild) {
+          child = children[i];
+        }
+      }
+
+      return child;
     };
 
     // Count child nodes with the same tag names
@@ -38,9 +53,14 @@
     };
 
     const div = document.querySelector('.parent');
-    console.log(countChildTagName(div, 'p')); // 1
-    console.log(countChildTagName(div, 'button')) // 3;
-    console.log(countChildTagName(div, 'a')); // 2;
+    // console.log(countChildTagName(div, 'p')); // 1
+    // console.log(countChildTagName(div, 'button')) // 3;
+    // console.log(countChildTagName(div, 'a')); // 2;
+    const button3 = getNthChild(div, 4);
+    const link2 = getNthChild(div, 6);
+
+    button3.textContent = 'Hello, world!';
+    link2.textContent = 'Link to my heart';
   </script>
 </body>
 </html>
