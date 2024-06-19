@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tabs</title>
+</head>
+<body>
+
+  <tab-panel class="tab-panel">
+    <div data-tabname="one"><span>Tab one</span></div>
+    <div data-tabname="two"><span>Tab two</span></div>
+    <div data-tabname="three"><span>Tab three</span></div>
+  </tab-panel>
+  
+  <script>
+    const asTabs = (node) => {
+      const children = getChildren(node);
+
+      for (let i = 0; i < children.length; i += 1) {
+        const button = document.createElement('button');
+
+        button.textContent = children[i].getAttribute('data-tabname');
+        children[i].appendChild(button);
+        children[i].style.cssText = 'display: flex; justify-content: space-around; margin: 1rem 0;';
+      }   
+
+      children[getRandomNumber(children.length)].style.display = 'none';
+
+      const buttons = document.querySelectorAll('button');  
+
+      applyButtonColor(buttons);
+    };
+
+    const getChildren = (node) => {
+      return node.children;
+    };
+
+    const applyButtonColor = (buttons) => {
+
+      for (let i = 0; i < buttons.length; i += 1) {
+        buttons[i].addEventListener('click', (event) => {
+          if (event.isTrusted && buttons[i].style.backgroundColor) {
+            buttons[i].style.backgroundColor = '';
+          } else {
+            buttons[i].style.backgroundColor = '#f0f'
+          }
+
+          console.log(`${buttons[i].textContent} is clicked.`)
+        });
+      }
+    }
+
+    const getRandomNumber = (num) => Math.floor(Math.random() * num);
+
+    const tabPanel = document.querySelector('.tab-panel');
+
+    asTabs(tabPanel);
+  </script>
+</body>
+</html>
