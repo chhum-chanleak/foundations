@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elements By Tag Name</title>
+</head>
+<body>
+  <div class="parent">
+    <p></p>
+    <button></button>
+    <button></button>
+    <button></button>
+    <a href=""></a>
+    <a href=""></a>
+  </div>
+
+  <script>
+
+    // Get child nodes when inputted a parent node
+    const getChildrenNode = (parentNode) => {
+      return parentNode.children;
+    };
+
+    // Count child nodes with the same tag names
+    const countChildTagName = (parentNode, childName) => {
+      let count = 0;
+      const children = getChildrenNode(parentNode);
+
+      for (let i = 0; i < children.length; i += 1) {
+        const tagName = children[i].tagName.toString().toLowerCase();
+
+        if (tagName === childName) {
+          count += 1;
+        }        
+      }
+      return count;
+    };
+
+    const div = document.querySelector('.parent');
+    console.log(countChildTagName(div, 'p')); // 1
+    console.log(countChildTagName(div, 'button')) // 3;
+    console.log(countChildTagName(div, 'a')); // 2;
+  </script>
+</body>
+</html>
