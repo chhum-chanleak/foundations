@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Events: Task 2</title>
+    <style>
+      p {
+        color: purple;
+        margin: 0.5em 0;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      canvas {
+        border: 1px solid black;
+      }
+    </style>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+
+  <body>
+
+    <section class="preview">
+    </section>
+
+    <canvas width="480" height="320" tabindex="0">
+
+    </canvas>
+    <button>Center the circle</button>
+    <button>Get coordinates</button>
+
+  <script>
+    const canvas = document.querySelector('canvas');
+    const ctx = canvas.getContext('2d');
+    const buttons = document.querySelectorAll('button');
+
+    function drawCircle(x, y, size) {
+      ctx.fillStyle = 'white';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      ctx.beginPath();
+      ctx.fillStyle = 'black';
+      ctx.arc(x, y, size, 0, 2 * Math.PI);
+      ctx.fill();
+    }
+
+    let x = 50;
+    let y = 50;
+    const size = 30;
+
+    // Add your code here
+    const getCoordinates = (event) => {
+      const coordinates = [event.clientX, event.clientY];
+      console.log(coordinates);
+      return coordinates;
+    };
+
+    const applyCircle = (event) => {
+      const coordinates = getCoordinates(event);
+      let x = coordinates[0];
+      let y = coordinates[1];
+
+      drawCircle(x, y, 30);
+    };
+
+   const centerCircle = () => {
+    const widthMidpoint = canvas.width / 2;
+    const heightMidpoint = canvas.height / 2;
+
+    console.log(`(${widthMidpoint}, ${heightMidpoint})`);
+    drawCircle(widthMidpoint, heightMidpoint, 30);
+   };
+
+   const controlCircle = (event) => {
+    if (centerCircle) {
+      switch (event.key.toLowerCase()) {
+        case 'w': 
+          drawCircle(240, 110, 30);
+          break;
+        case 'a': 
+          drawCircle(190, 160, 30);
+          break;
+        case 's': 
+          drawCircle(240, 210, 30);
+          break;
+        case 'd': 
+          drawCircle(290, 160, 30);
+          break;
+      }
+    }
+   };
+
+    canvas.addEventListener('click', applyCircle);
+    buttons[0].addEventListener('click', centerCircle);
+    document.documentElement.addEventListener('keydown', controlCircle);
+
+  </script>
+  </body>
+  
+</html>
