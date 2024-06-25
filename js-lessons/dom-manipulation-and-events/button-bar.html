@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Events: Task 3</title>
+    <style>
+      p {
+        color: purple;
+        margin: 0.5em 0;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      button {
+        display: block;
+        margin: 20px 0 20px 20px;
+      }
+
+      .button-bar {
+        padding: 20px 0;
+      }
+    </style>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+
+  <body>
+
+    <section class="preview">
+    </section>
+
+    <div class="button-bar">
+      <button data-color="red">Red</button>
+      <button data-color="yellow">Yellow</button>
+      <button data-color="green">Green</button>
+      <button data-color="purple">Purple</button>
+    </div>
+
+  <script> 
+
+  // Add your code here
+
+  // Set background color of buttonBar according to value of data-color attribute
+  const setColor = (event) => {
+    const buttonBar = document.querySelector('.button-bar');
+
+    switch (event.target.getAttribute('data-color')) {
+      case 'red': 
+        buttonBar.style.backgroundColor = 'red';
+        break;
+      case 'yellow': 
+        buttonBar.style.backgroundColor = 'yellow';
+        break; 
+      case 'green': 
+        buttonBar.style.backgroundColor = 'green';
+        break;
+      case 'purple': 
+        buttonBar.style.backgroundColor = 'purple';
+        break;
+    }
+  };
+
+  const addListener = () => {
+    const buttons = document.querySelectorAll('button');
+
+    for (let i = 0; i < buttons.length; i += 1) {
+      buttons[i].addEventListener('click', setColor);
+    }
+  };
+
+  addListener();
+
+  </script>
+  </body>
+</html>
