@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping list example</title>
+    <style>
+      li {
+        margin-bottom: 10px;
+      }
+
+      li button {
+        font-size: 12px;
+        margin-left: 20px;
+        color: #666;
+      }
+    </style>
+  </head>
+  <body>
+
+    <h1>My shopping list</h1>
+
+    <div>
+      <label for="item">Enter a new item:</label>
+      <input type="text" name="item" id="item">
+      <button id="add-item">Add item</button>
+    </div>
+
+    <ul>
+
+    </ul>
+
+    <p id="message"></p>
+
+    <script>
+
+      const ul = document.querySelector('ul');
+      const html = document.documentElement;
+
+      // Get input value
+      const getInputValue = () => {
+        const input = document.querySelector('input');
+
+        return input.value;
+      };
+
+      // Add an item to the list
+      const addListItem = (event) => {   
+        const input = document.querySelector('input');
+        const message = document.querySelector('#message');
+        const listItem = document.createElement('li');
+        const inputValue = document.createTextNode(getInputValue());
+        
+        // Show a message when try to input nothing to the list
+        if (input.value === '') {
+          message.textContent = 'Input field is empty.'
+          message.style.color = '#f00';
+          return;
+        }
+
+        listItem.appendChild(inputValue);
+        addDeleteButton(listItem);
+        ul.appendChild(listItem);
+        message.textContent = '';
+
+        // Clear input filed when button is clicked
+        clearInputField();
+        input.focus();
+      };
+
+      // Clear input field
+      const clearInputField = () => {
+        const input = document.querySelector('input');
+
+        input.value = '';
+      };
+
+      // Add Delete button to a node
+      const addDeleteButton = (node) => {
+        const button = document.createElement('button');
+        button.textContent = 'Delete';
+        button.setAttribute('class', 'delete');
+        button.addEventListener('click', deleteListItem);
+
+        node.appendChild(button);
+      };
+
+      // Delete the list item when Delete button is clicked
+      const deleteListItem = (event) => {
+        event.target.parentNode.remove();
+      };
+
+      // Add item with Enter key
+      const addItemWithEnterKey = (event) => {
+        const clickEvent = new Event('click', addListItem);
+        const button = document.querySelector('#add-item');
+
+        if (event.key === 'Enter') {
+          button.dispatchEvent(clickEvent);
+        }
+      };
+
+      // Don't add item when the input field is empty
+      const checkInputFieldIsEmpty = () => {
+        const input = document.querySelector('input');
+        
+        if (input.value === '') {
+          return true;
+        }
+
+        return false;
+      };
+
+      const button = document.querySelector('button');
+      button.addEventListener('click', addListItem);
+
+      html.addEventListener('keydown', addItemWithEnterKey);
+
+    </script>
+  </body>
+</html>
