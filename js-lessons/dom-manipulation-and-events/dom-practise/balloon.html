@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Balloon</title>
+
+  <style>
+    *,
+    *::before,
+    *::after {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    #balloon {
+      font-size: 16px;
+      margin-top: 50%;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+
+</head>
+<body>
+
+  <p id="balloon">🎈</p>
+  
+  <script>
+
+    // Get the current balloon size
+    const getBalloonSize = () => {
+      const balloon = document.querySelector('#balloon');
+      const computedStyle = window.getComputedStyle(balloon);
+
+      return parseFloat(computedStyle.fontSize);
+    };
+
+    const grow = (event) => {
+      isPopped();
+
+      const balloon = document.querySelector('p');
+      const currentSize = getBalloonSize();
+      const increasedSize = currentSize + (currentSize * 0.1);    
+
+      if (event.key === 'ArrowUp') {
+        popTheBalloon();
+
+        balloon.style.fontSize = `${increasedSize}px`;
+      }
+    };
+
+    // Balloon Pop
+    const popTheBalloon = (balloonSize) => {
+      const balloon = document.querySelector('#balloon');
+
+      if (getBalloonSize() >= 400) {
+        balloon.textContent = '💥';
+      }
+    };
+
+    // Check if the balloon is popped
+    const isPopped = () => {
+      const balloon = document.querySelector('#balloon');
+
+      if (balloon.textContent === '💥') {
+        balloon.style.fontSize = '400px';
+      }
+    };
+
+    // Deflate(shrink) the balloon size
+    const shrink = (event) => {
+      stopShrinkingWhenTooSmall();
+
+      const balloon = document.querySelector('p');
+      const currentSize = getBalloonSize();
+      const decreasedSize = currentSize - (currentSize * 0.1);    
+
+      if (event.key === 'ArrowDown') {
+        
+        balloon.style.fontSize = `${decreasedSize}px`;
+      }
+    };
+
+    // Prevent the balloon from being shrunk to the size small than 16px
+    const stopShrinkingWhenTooSmall = () => {
+      const balloon = document.querySelector('#balloon');
+
+      if (getBalloonSize() <= 16) {
+        balloon.style.fontSize = '16px';
+      }
+    };
+
+    const body = document.body;
+    body.addEventListener('keydown', grow);
+    body.addEventListener('keydown', shrink);
+
+  </script>
+</body>
+</html>
