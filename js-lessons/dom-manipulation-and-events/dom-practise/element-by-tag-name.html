@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get Element by tag name</title>
+</head>
+<body>
+  
+  <ul>
+    <li></li>
+    <li></li>
+  </ul>
+
+  <div>
+    <h1></h1>
+    <a href=""></a>
+    <a href=""></a>
+  </div>
+
+  <p>
+    <span></span>
+  </p>
+
+  <script>
+
+    // Count child type 
+    const countChildType = (parentNode, childNode) => {
+      const children = parentNode.children;
+      let count = 0;
+
+      for (let i = 0; i < children.length; i += 1) {
+        if (children[i].tagName.toLowerCase() === childNode) {
+          count += 1;
+        }
+      }
+
+      return count;
+    };
+
+    const ul = document.querySelector('ul');
+    const p = document.querySelector('p');
+    const div = document.querySelector('div');
+
+    let num = countChildType(p, 'span');
+
+    console.log(num);
+  </script>
+</body>
+</html>
