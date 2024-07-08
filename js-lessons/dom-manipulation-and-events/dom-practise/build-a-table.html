@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Build a table</title>
+</head>
+<body>
+  <table>
+
+  </table>
+  
+  <script>
+    const MOUNTAINS = [
+    {name: "Kilimanjaro", height: 5895, place: "Tanzania"},
+    {name: "Everest", height: 8848, place: "Nepal"},
+    {name: "Mount Fuji", height: 3776, place: "Japan"},
+    {name: "Vaalserberg", height: 323, place: "Netherlands"},
+    {name: "Denali", height: 6168, place: "United States"},
+    {name: "Popocatepetl", height: 5465, place: "Mexico"},
+    {name: "Mont Blanc", height: 4808, place: "Italy/France"}
+  ];
+    const table = document.querySelector('table');
+
+    // Create table head row
+    const createTableHeads = (array) => {
+      const tr = document.createElement('tr');      
+      const propertyNames = Object.getOwnPropertyNames(array[0]);
+
+      for (let i = 0; i < propertyNames.length; i += 1) {
+        const th = document.createElement('th');
+        th.textContent = `${propertyNames[i]}`;
+        tr.appendChild(th);
+      }
+      table.appendChild(tr);      
+    };
+
+    // Create table description row
+    const createTableDescriptionRow = (array) => {
+
+      for (let i = 0; i < array.length; i += 1) {
+        const tr = document.createElement('tr');
+        const tdName = document.createElement('td');
+        const tdHeight = document.createElement('td');
+        const tdPlace = document.createElement('td');
+
+        tdName.textContent = `${array[i].name}`;
+        tdHeight.textContent = `${array[i].height}`;
+        tdPlace.textContent = `${array[i].place}`;
+
+        tr.appendChild(tdName);
+        tr.appendChild(tdHeight);
+        tr.appendChild(tdPlace); 
+      
+        table.appendChild(tr);  
+      }      
+    };
+
+    createTableHeads(MOUNTAINS);
+    createTableDescriptionRow(MOUNTAINS);
+
+  </script>
+</body>
+</html>
