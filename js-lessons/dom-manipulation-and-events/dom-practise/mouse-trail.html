@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mouse Trail</title>
+
+  <style>
+
+    *,
+    *::before,
+    *::after {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      background-color: #0f0;
+    }
+
+    .white-board {
+      height: 80vh;
+      width: 60vw;
+      border: 1px solid black;
+      margin-top: 100px;
+      background-color: #fff;
+      position: relative;
+
+      &.white-board:hover {
+        cursor: pointer;
+      }
+    }
+
+  </style>
+
+</head>
+<body>
+  <div class="white-board">
+
+  </div>
+
+  <script>
+    // Get coordinations inside the white-board
+    const getCoordinations = (event) => {
+      return {x: event.offsetX, y: event.offsetY}
+    };
+
+    // Apply dot onto white-board
+    const applyDot = (event) => {
+      event.stopPropagation();
+      let x = getCoordinations(event).x;
+      let y = getCoordinations(event).y;
+      const dot = document.createElement('div');
+      
+      dot.style.cssText = `
+        height: 4px;
+        width: 4px;
+        background-color: #f0f;
+        position: absolute;
+        left: ${x}px;
+        top: ${y}px;
+      `;
+
+      dot.addEventListener('mousemove', stopPropagationOfWhiteBoardChildNodes);      
+
+      whiteBoard.appendChild(dot);
+      console.log(`${x}, ${y}`);
+    };
+
+    // Stop propagation of white-board child nodes
+    const stopPropagationOfWhiteBoardChildNodes = (event) => {
+      event.stopPropagation();
+    }; 
+
+    const whiteBoard = document.querySelector('.white-board');
+    whiteBoard.addEventListener('mousemove', applyDot)
+  </script>
+</body>
+</html>
