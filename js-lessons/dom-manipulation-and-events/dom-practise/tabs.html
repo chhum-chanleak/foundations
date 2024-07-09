@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tabs</title>
+
+  <style>
+    tab-panel {
+      display: flex;
+      
+    }
+  </style>
+
+</head>
+<body>
+  <tab-panel>
+    <div data-tabname="one">Tab one</div>
+    <div data-tabname="two">Tab two</div>
+    <div data-tabname="three">Tab three</div>
+  </tab-panel>
+
+  <script>
+    // Get child nodes of a node
+    const getChildNodes = (parentNode) => {
+      const children = parentNode.children;
+
+      return children;
+    };
+
+    // Pass a string to create a button
+    const createButton = (buttonName, buttonClass) => {
+      const button = document.createElement('button');
+      button.textContent = `${buttonName}`;
+      button.setAttribute('class', `${buttonClass}`);
+
+      return button;
+    };
+
+    // Apply button to node
+    const applyButton = () => {
+      const tabPanel = document.querySelector('tab-panel');
+      const nodes = getChildNodes(tabPanel);
+
+      console.log(nodes);
+
+      for (let i = 0; i < nodes.length; i += 1) {
+        const button = createButton(nodes[i].getAttribute('data-tabname'), nodes[i].getAttribute('data-tabname'));
+        nodes[i].appendChild(button);
+      }
+    };
+
+    applyButton();
+    
+  </script>
+</body>
+</html>
