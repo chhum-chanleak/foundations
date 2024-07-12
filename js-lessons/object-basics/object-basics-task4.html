@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Object basics task 4</title>
+</head>
+<body>
+  <div></div>
+
+  <script>
+    const div = document.querySelector('div');
+
+    function Cat(name, breed, color) {
+      this.name = name;
+      this.breed = breed;
+      this.color = color;
+      this.greeting = function() {
+        console.log(`Hello, said ${this.name} the ${this.breed}.`);
+      }
+    }
+
+    const cat = new Cat('Bobo', 'Tabby', 'gray');
+    const cat2 = new Cat('Baba', 'Calico', 'rainbow');
+  </script>
+</body>
+</html>
