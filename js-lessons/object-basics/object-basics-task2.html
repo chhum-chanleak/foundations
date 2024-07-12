@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Object basics: Task 2</title>
+    <style>
+      p {
+        color: purple;
+        margin: 0.5em 0;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+    </style>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+
+  <body>
+
+    <section class="preview">
+
+
+
+    </section>
+
+  </body>
+  <script>
+
+    // Add your code here
+    const band = {
+      name: 'Linkin Park',
+      nationality: 'US',
+      genre: 'Rock',
+      members: 5,
+      formed: 1998,
+      split: 2018,
+      albums: [
+        {name: 'New Divide', release: 2011},
+        {name: 'NewDivide2', release: 2015}
+      ],
+    };
+    const bandInfo = `${band.name} is a ${band.nationality} based ${band.genre} band formed in ${band.formed}. Their first album ${band.albums[0].name} was released in ${band.albums[0].release}.`;
+    
+    // Don't edit the code below here!
+
+    const section = document.querySelector('section');
+    let para1 = document.createElement('p');
+    para1.textContent = bandInfo;
+    section.appendChild(para1);
+  </script>
+
+</html>
