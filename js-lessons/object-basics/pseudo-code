@@ -1,0 +1,19 @@
+SEQ 
+  .Implement a function named 'sumOfTripledEvens'
+  .Take in an 'array' as a parameter
+  .Initialize 'tripledNumbers' as an empty array
+  .Initialize 'sumOfTripledNumbers' is 0
+  .LOOP through the 'array'
+    .IF array-item remainders 2 is 0, THEN
+      .Push array-item to 'tripledNumbers'
+    ENDIF
+  ENDLOOP
+  .LOOP through 'tripledNumbers'
+    .Set 'sumOfTripledNumbers' is 'sumOfTripledNumbers' plus 'tripledNumbers-item'
+  ENDLOOP
+  SEQ
+    Return 'sumOfTripledNumbers';
+  .Triple every even number in the 'array'
+  .Sum all of those tripled even numbers
+ENDSEQ
+
