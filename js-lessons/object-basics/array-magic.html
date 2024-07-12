@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Array Magic</title>
+</head>
+<body>
+  
+  <script>
+    const nums = [1, 2, 3, 4, 5];
+    const addOne = num => num + 1;
+    // map method
+    const addedNums = nums.map(addOne);
+    const getEvenNumber = (num) => (num % 2 === 0) && num;
+    const getOddNumber = num => (num % 2 !== 0);
+    // filter method
+    const evenNums = nums.filter(getEvenNumber);
+    const oddNums = nums.filter(getOddNumber);
+    // reduce method
+    const multiplyByTotal = (total, currentItem) => total * currentItem;
+    const productOfAllNums = nums.reduce(multiplyByTotal, 1);
+    const sumOfAllNums = nums.reduce((sum, currentItem) => sum + currentItem, 0);
+    const sumOfTripledEvens = (arr) => {
+     const result = arr.filter(item => (item % 2 === 0)).map(item => item * 3).reduce((initialValue, currentValue) => initialValue + currentValue, 0);
+     //reduce((initialValue, currentValue) => initialValue + currentValue, 0);
+     return result;    
+    };
+  </script>
+</body>
+</html>
