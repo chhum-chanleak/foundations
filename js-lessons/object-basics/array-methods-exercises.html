@@ -62,8 +62,12 @@
     const deInBoulevards = parisBoulevards.filter(boulevards => boulevards.includes('de'));
 
     // 7. sort Exercise
-    // Sort the people alphabetically by last name
+    // Sort the inventor alphabetically by last name
     const sortedInventorLastNames = inventors.map(inventor => inventor.last).sort();
+    // Sort people
+    const convertFullNameToArray = (person) => person.split(', ');
+    const getPeopleLastName = (name) => name[1]; 
+    const sortedLastName = people.map(convertFullNameToArray).map(getPeopleLastName).sort();    
 
     // 8. Reduce Exercise
     // Sum up the instances of each of these
