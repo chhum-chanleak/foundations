@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Object basics task 5</title>
+</head>
+<body>
+  
+  <div>Go to the console</div>
+
+  <script>
+
+    const words = 'hello-world!-again';
+    let arr = [5, 3, 8, 1];
+    let arr2 = [5, 2, 1, -10, 8];
+    let arr3 = ["HTML", "JavaScript", "CSS"];
+    let john1 = { name: "John", age: 25 };
+    let pete1 = { name: "Pete", age: 30 };
+    let mary1 = { name: "Mary", age: 28 };
+    let users1 = [ john1, pete1, mary1 ];
+    let john = { name: "John", surname: "Smith", id: 1 };
+    let pete = { name: "Pete", surname: "Hunt", id: 2 };
+    let mary = { name: "Mary", surname: "Key", id: 3 };
+    let users = [ john, pete, mary ];
+    let strings = ["Hare", "Krishna", "Hare", "Krishna",
+  "Krishna", "Krishna", "Hare", "Hare", ":-O"];
+
+    // Map to objects
+    let usersMapped = users.map(name => ({
+      fullName: `${name.name} ${name.surname}`,
+      id: name.id,
+    }));
+
+    // Capitalize from second item and join items
+    const capitalizeFromSecondItem = (item, index) => (index === 0) ? item : item[0].toUpperCase() + item.slice(1); 
+
+    const camelize = (string) => {
+      const convertedString = string.split('-')
+      .map(capitalizeFromSecondItem).join('');
+
+      return convertedString;
+    };
+
+    // task 2 (1pt)
+    const filterRange = (arr, a, b) => {
+      return arr.filter(item => (item >= a && item <= b) && item);
+    };
+
+    // Remove items not in range (1pt)
+    const filterRangeInPlace = (arr, a, b) => {
+      for (let i = 0; i < arr.length; i += 1) {
+        if (arr[i] < a || arr[i] > b) {
+          arr.splice(i, 1);
+        }
+      }
+    };
+
+    // Descending sort (1pt)
+    const descendingSort = arr.sort((a, b) => b - a);
+
+    // Copy and sort array (1pt)
+    const copiedArr = arr3.slice();
+    const sortedArr = copiedArr.sort();
+
+    // Map to names (1pt)
+    users.splice(0, 3, users[0].name, users[1].name, users[2].name);
+
+    // Get average age
+    const averageAges = Math.round((users1.map(user => user.age).reduce((acc, cur) => (acc + cur)) / (users1.length)).toFixed(2));
+
+    // Filter unique array members
+    const countInstances = (arr) => {
+      let count = 0;
+      for (let i = 0; i < arr.length; i += 1) {
+        for (let j = 0; j < arr.length; j += 1) {
+          if (arr[i] === arr[j]) {
+            count += 1;
+          }
+        }
+      }
+      return count;
+    };
+
+    // Convert an array into an array with unique items (1pt)
+    const uniqueArr = [...new Set(strings)];
+
+    const getUnique = (arr) => {
+      let unique = [];
+
+      for (let i = 0; i < arr.length; i += 1) {
+        if (unique.includes(arr[i])) {
+          continue;
+        } else {
+          unique.push(arr[i]);
+        }
+      }
+      return unique;
+    };
+
+    // Create keyed object from array
+
+    let usersById = users1.reduce((acc, cur) => {
+      acc[cur.name] = cur;
+      return acc;
+      }, {});
+
+
+  </script>
+</body>
+</html>
