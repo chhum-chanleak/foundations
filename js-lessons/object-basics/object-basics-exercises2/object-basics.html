@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Object Basics</title>
+</head>
+<body>
+  <div>Go to the console =></div>
+
+  <script>
+    const user = {};
+    user['name'] = 'John';
+    user['surname'] = 'Smith';
+    // Change the value of the name to 'Pete'
+    user['name'] = 'Pete';
+    // Remove the property name from object user
+    delete user['name'];
+
+    // Check for emptiness
+    const isEmpty = (obj) => {
+      for (let prop in obj) {
+        return false;
+      }
+      return true;
+    };
+    const schedule = {};
+    isEmpty(schedule); //true
+
+    // Sum object properties
+    const sumSalaries = (obj) => {
+      let result = 0;
+      
+      if (isEmpty(obj)) {
+        result;
+      } else {
+        for (let prop in obj) {
+          result += obj[prop];
+        }
+      }
+      return result;
+    };
+    let salaries = {
+      John: 100,
+      Ann: 160,
+      Pete: 130
+    };
+
+    // Multiply numeric property values by 2
+    const multiplyNumeric = (obj) => {
+      for (let prop in obj) {
+        if (!isNaN(obj[prop])) {
+          obj[prop] = obj[prop] * 2;
+        }
+      }
+    };
+    let menu = {
+      width: 200,
+      height: 300,
+      title: "My menu"
+    };
+
+  
+
+  </script>
+</body>
+</html>
