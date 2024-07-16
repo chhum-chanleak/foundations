@@ -72,8 +72,31 @@
     // 8. Reduce Exercise
     // Sum up the instances of each of these
     const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
-
-    const countInstances = data.length;
+    // Unique data
+    const uniqueData = [...new Set(data)];
+    // Get unique items
+    const getUniqueItems = (arr) => {
+      const uniqueItems = [...new Set(arr)];
+      return uniqueItems;
+    };
+    // Count each instance
+    const countInstances = (arr) => {
+      const uniqueItems = getUniqueItems(arr).map(item => {
+        return {
+          type: item,
+          count: 0
+        }
+      });
+      
+      for (let i = 0; i < arr.length; i += 1) {
+        for (let j = 0; j < uniqueItems.length; j += 1) {
+          if (arr[i] === uniqueItems[j].type) {
+            uniqueItems[j].count += 1;
+          }
+        }
+      }
+      return uniqueItems;
+    };
     
   </script>
 </body>
