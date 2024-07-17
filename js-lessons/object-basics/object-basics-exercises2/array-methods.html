@@ -12,6 +12,7 @@
     let nums = [5, 3, 8, 1];
     let nums2 = [5, 2, 11, 1, -10, 9, -2];
     let nums3 = [100, 1, 21, 2, -2, 15, 2, 0, 8];
+    let techs = ["HTML", "JavaScript", "CSS"];
 
     // Convert kebab-case to camel-case
     const camelize = (str) => {
@@ -103,6 +104,13 @@
     const sortDescendingV2 = (arr) => {
       const sortedArr = arr.sort((a, b) => b - a);
       return sortedArr;
+    };
+    
+    // Copy and sort array
+    const copySorted = (arr) => {
+      const copiedArr = arr.slice();
+      const sortedArr = copiedArr.sort((a, b) => (a.localeCompare(b)));
+      return sortedArr;     
     };
 
   </script>
