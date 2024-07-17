@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Array Methods</title>
+</head>
+<body>
+  <div>Please go to the console =></div>
+
+  <script>
+    let nums = [5, 3, 8, 1];
+    let nums2 = [5, 2, 11, 1, -10, 9, -2];
+    let nums3 = [100, 1, 21, 2, -2, 15, 2, 0, 8];
+
+    // Convert kebab-case to camel-case
+    const camelize = (str) => {
+      const convertedStr = str
+      .toLowerCase()
+      .split('-');
+      const camelizedStr = convertedStr
+      .map((word, index) => ((index < 1) ? word : word[0].toUpperCase() + word.slice(1)))
+      .join('');
+      return camelizedStr;
+    };
+
+    // Filter range
+    const filterRange = (arr, a = 1, b = 5) => {
+      let filteredItems = [];
+
+      for (let i = 0; i < arr.length; i += 1) {
+        if ((arr[i] >= a) && (arr[i] <= b)) {
+          filteredItems.push(arr[i]);
+        }
+      }
+      return filteredItems;
+    };
+
+    // Filter range (version 2)
+    const filterRangeV2 = (arr, a = 1 ,b = 5) => {
+      const filteredItems = arr.filter(item => ((item >= a) && (item <= b)));
+      return filteredItems;
+    };
+
+    // Filter Range to modify array
+    const filterAndModify = (arr, a = 1, b = 5) => {
+      for (let i = 0; i < arr.length; i += 1) {
+        if (!((arr[i] >= a) && (arr[i] <= b))) {
+          arr.splice(i, 1);
+          i -= 1;
+        }
+      }
+      console.log(arr);
+    };
+
+    // Check whether an array contains a certain item
+    const containsItem = (arr, item) => {
+      for (let i = 0; i < arr.length; i += 1) {
+        if (arr[i] === item) {
+          return true;
+        } else {
+          continue;
+        }
+      }
+      return false;
+    };
+
+    // Find the maximum number
+    const getMax = (arr) => {
+      let maxNum;
+
+      for (let i = 0; i < arr.length; i += 1) {
+        if (i === 0) {
+          maxNum = arr[i];
+        }
+
+        if (maxNum > arr[i + 1]) {
+          maxNum = maxNum;
+        } else if (maxNum < arr[i + 1]) {
+          maxNum = arr[i + 1];
+        }
+      }
+      return maxNum;
+    };
+
+    // Sort in decreasing order
+    const sortDescending = (arr) => {
+      let tempArr = [];
+
+      for (let i = 0; i < arr.length; i += 1) {
+        if (arr[i] === getMax(arr)) {
+          tempArr.push(arr.splice(i, 1)[0]);
+          // Return to i = 0 aft this iteration
+          i = -1;
+        }        
+      }
+      // Replace everything in arr with tempArr
+      arr.splice(0, arr.length, ...tempArr);
+      return arr;
+    };
+
+    // Sort in decreasing order (version 2)
+    const sortDescendingV2 = (arr) => {
+      const sortedArr = arr.sort((a, b) => b - a);
+      return sortedArr;
+    };
+
+  </script>
+</body>
+</html>
