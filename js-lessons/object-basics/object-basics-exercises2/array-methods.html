@@ -13,6 +13,10 @@
     let nums2 = [5, 2, 11, 1, -10, 9, -2];
     let nums3 = [100, 1, 21, 2, -2, 15, 2, 0, 8];
     let techs = ["HTML", "JavaScript", "CSS"];
+    let john = { name: "John", age: 25 };
+    let pete = { name: "Pete", age: 30 };
+    let mary = { name: "Mary", age: 28 };
+    let users = [ john, pete, mary ];
 
     // Convert kebab-case to camel-case
     const camelize = (str) => {
@@ -111,6 +115,22 @@
       const copiedArr = arr.slice();
       const sortedArr = copiedArr.sort((a, b) => (a.localeCompare(b)));
       return sortedArr;     
+    };
+
+    // Map to names
+    const getNames = (arr) => {
+      let names = [];
+
+      for (let i = 0; i < arr.length; i += 1) {
+        names.push(arr[i].name);
+      }
+      return names;
+    };
+
+    // Map to names (version 2)
+    const getNamesV2 = (arr) => {
+      const names = arr.map(person => person.name);
+      return names;
     };
 
   </script>
