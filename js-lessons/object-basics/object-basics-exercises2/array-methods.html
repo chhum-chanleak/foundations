@@ -183,6 +183,23 @@
       return sortedArr;
     };
 
+    // Get average age
+    const getAverageAge = (arr) => {
+      let sum = 0;
+
+      for (let i = 0; i < arr.length; i += 1) {
+        sum += arr[i].age;
+      }
+      return Math.round(sum / arr.length);
+    };
+
+    // Get average age (version 2)
+    const getAverageAgeV2 = (arr) =>  {
+      const sum = arr
+      .map(person => person.age)
+      .reduce((acc, cur) => acc + cur, 0);
+      return Math.round(sum / arr.length);
+    };
   </script>
 </body>
 </html>
