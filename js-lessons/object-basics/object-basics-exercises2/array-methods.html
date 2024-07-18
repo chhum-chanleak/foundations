@@ -13,9 +13,9 @@
     let nums2 = [5, 2, 11, 1, -10, 9, -2];
     let nums3 = [100, 1, 21, 2, -2, 15, 2, 0, 8];
     let techs = ["HTML", "JavaScript", "CSS"];
-    let john = { name: "John", age: 25 };
-    let pete = { name: "Pete", age: 30 };
-    let mary = { name: "Mary", age: 28 };
+    let john = { name: "John", surname: 'Smith', age: 25 , id: 1};
+    let pete = { name: "Pete", surname: 'Hunt', age: 30, id: 2};
+    let mary = { name: "Mary", surname: 'Key', age: 28, id: 3};
     let users = [ john, pete, mary ];
 
     // Convert kebab-case to camel-case
@@ -131,6 +131,29 @@
     const getNamesV2 = (arr) => {
       const names = arr.map(person => person.name);
       return names;
+    };
+
+    // Map to objects
+    const getFullNameId = (arr) => {
+      let usersMapped = [];
+
+      for (let i = 0; i < arr.length; i += 1) {
+        const newObj = {
+          fullName: `${arr[i].name} ${arr[i].surname}`, id: arr[i].id
+        };
+        usersMapped.push(newObj);
+      }
+      return usersMapped;
+    };
+
+    // Map to objects (version 2)
+    const getFullNameIdV2 = (arr) => {
+      const usersMapped = arr.map(person => {
+        return {
+          fullName: `${person.name} ${person.surname}`, id: person.id
+        };
+      });
+      return usersMapped;
     };
 
   </script>
