@@ -220,6 +220,38 @@
       }
       return filteredArr;
     };
+
+    // Create keyed object from array
+    const groupById = (arr) => {
+      let newArr = [];
+
+      for (let i = 0; i < arr.length; i += 1) {
+        const newObj = {
+          [`${arr[i].id}`]: {
+            id: arr[i].id,
+            name: arr[i].name,
+            age: arr[i].age
+          }
+        }
+        newArr.push(newObj);
+      }
+      return newArr;
+    };
+
+    // Create keyed object from array (version 2)
+    const groupByIdV2 = (arr) => {
+      const sortById = arr.map(person => {
+        return {
+          [`${person.id}`]: {
+            id: person.id,
+            name: person.name,
+            age: person.age
+          }
+        };
+      });
+      return sortById;
+    };
+
   </script>
 </body>
 </html>
