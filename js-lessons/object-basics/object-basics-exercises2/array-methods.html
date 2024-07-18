@@ -156,6 +156,33 @@
       return usersMapped;
     };
 
+    // Sort users by age
+    const sortByAges = (arr) => {
+      let tempArr = [];
+      let agesArr = [];
+
+      for (let i = 0; i < arr.length; i += 1) {
+        agesArr.push(arr[i].age);
+      }
+
+      for (let i = 0; i < arr.length; i += 1) {
+        if (arr[i].age === getMax(agesArr)) {
+          tempArr.push(arr.splice(i, 1)[0]);
+          agesArr.splice(i, 1);
+          i = -1;
+        }
+      }
+
+      arr.splice(0, arr.length, ...tempArr);
+      return arr;
+    };
+
+    // Sort users by age (version 2)
+    const sortByAgesV2 = (arr) => {
+      const sortedArr = arr.sort((a, b) => b.age - a.age);
+      return sortedArr;
+    };
+
   </script>
 </body>
 </html>
