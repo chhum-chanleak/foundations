@@ -17,6 +17,8 @@
     let pete = { name: "Pete", surname: 'Hunt', age: 30, id: 2};
     let mary = { name: "Mary", surname: 'Key', age: 28, id: 3};
     let users = [ john, pete, mary ];
+    let strings = ["Hare", "Krishna", "Hare", "Krishna", "Krishna", "Krishna", "Hare", "Hare", ":-O"
+]
 
     // Convert kebab-case to camel-case
     const camelize = (str) => {
@@ -199,6 +201,24 @@
       .map(person => person.age)
       .reduce((acc, cur) => acc + cur, 0);
       return Math.round(sum / arr.length);
+    };
+
+    // Filter unique array members
+    const getUnique = (arr) => {
+      const uniqueArr = [...new Set(arr)];
+      return uniqueArr;
+    };
+
+    // Filter unique array members (version 2)
+    const getUniqueV2 = (arr) => {
+      let filteredArr = [];
+      
+      for (let i = 0; i < arr.length; i += 1) {
+        if (!filteredArr.includes(arr[i])) {
+          filteredArr.push(arr[i]);
+        }
+      }
+      return filteredArr;
     };
   </script>
 </body>
