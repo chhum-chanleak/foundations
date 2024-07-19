@@ -17,6 +17,15 @@ const camelize = (str) => {
   return capitalizedArr.join('');
 };
 
+// Convert kebab-case to camelCase (version 2)
+const camelizeV2 = (str) => {
+  const convertedStr = str.toLowerCase().split('-');
+  const capitalizedArr = convertedStr.map((item, index)=> {
+    return (index > 0) ? item[0].toUpperCase() + item.slice(1) : item;
+  });
+  return capitalizedArr.join('');
+}; 
+
 // Return an array of values which are higher or equal to 'a' and lower or equal to 'b' from a certain 'array'
 const filterRange = (arr, a = 1, b = 2) => {
   let filteredArr = [];
