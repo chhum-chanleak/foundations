@@ -1,3 +1,5 @@
+let numbers = [5, 3, 8, 1];
+
 // Convert kebab-case to camelCase
 const camelize = (str) => {
   // Convert string to lowercase then to array
@@ -13,4 +15,16 @@ const camelize = (str) => {
     }
   }
   return capitalizedArr.join('');
+};
+
+// Return an array of values which are higher or equal to 'a' and lower or equal to 'b' from a certain 'array'
+const filterRange = (arr, a = 1, b = 2) => {
+  let filteredArr = [];
+
+  for (let i = 0; i < arr.length; i += 1) {
+    if ((arr[i] >= a) && (arr[i] <= b)) {
+      filteredArr.push(arr[i]);
+    }
+  }
+  return filteredArr;
 };
