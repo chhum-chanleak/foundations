@@ -37,3 +37,11 @@ const filterRange = (arr, a = 1, b = 2) => {
   }
   return filteredArr;
 };
+
+// filter Range (version 2)
+const filterRangeV2 = (arr, a = 1, b = 2) => {
+  const filteredArr = arr.filter(item => {
+    return ((item >= a) && (item <= b)) && item;
+  })
+  return filteredArr;
+};
