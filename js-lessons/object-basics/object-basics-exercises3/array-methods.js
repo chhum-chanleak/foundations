@@ -164,6 +164,18 @@ const getUnique = (arr) => {
 };
 
 // Filter an array and return an array of unique values (version 2)
+const getUniqueV2 = (arr) => {
+  const unique = arr.reduce((uniqueArr, item) => {
+    if (!uniqueArr.includes(item)) {
+      uniqueArr.push(item);
+    }
+    return uniqueArr;
+  }, []);
+  return unique;
+};
+
+
+// Filter an array and return an array of unique values (version 2)
 const uniqueArr = [...new Set(names2)];
 
 // Create keyed object from array
