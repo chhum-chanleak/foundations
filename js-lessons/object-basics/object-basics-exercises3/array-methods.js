@@ -1,9 +1,9 @@
 let numbers = [5, 3, 8, 1];
 let numbers2 = [5, 2, 1, -10, 8];
 let techs = ["HTML", "JavaScript", "CSS"];
-let john = {name: "John", age: 25};
-let pete = {name: "Pete", age: 30};
-let mary = {name: "Mary", age: 28};
+let john = {name: "John", surname: "Smith", age: 25, id: 1};
+let pete = {name: "Pete", surname: "Hunt", age: 30, id: 2};
+let mary = {name: "Mary", surname: "Key", age: 28, id: 3};
 let users = [john, pete, mary];
 
 // Convert kebab-case to camelCase
@@ -88,3 +88,24 @@ const getNames = (arr) => {
 
 // Map to names (version 2)
 const names = users.map(user => user.name);
+
+// Map to objects
+const getFullNameIds = (arr) => {
+  let fullNameIds = [];
+
+  for (let i = 0; i < arr.length; i += 1) {
+    fullNameIds.push({
+      fullName: `${arr[i].name} ${arr[i].surname}`,
+      id: arr[i].id
+    })
+  }
+  return fullNameIds;
+};
+
+// Map to objects (version 2)
+const fullNameIds = users.map(user => {
+  return {
+    fullName: `${user.name} ${user.surname}`,
+    id: user.id
+  };
+});
