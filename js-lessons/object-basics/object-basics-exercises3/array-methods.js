@@ -1,6 +1,10 @@
 let numbers = [5, 3, 8, 1];
 let numbers2 = [5, 2, 1, -10, 8];
 let techs = ["HTML", "JavaScript", "CSS"];
+let john = {name: "John", age: 25};
+let pete = {name: "Pete", age: 30};
+let mary = {name: "Mary", age: 28};
+let users = [john, pete, mary];
 
 // Convert kebab-case to camelCase
 const camelize = (str) => {
@@ -71,3 +75,16 @@ const copyAndSort = (arr) => {
   const sortedArr = copiedArr.sort((a, b) => a.localeCompare(b));
   return sortedArr;
 };
+
+// Map to names
+const getNames = (arr) => {
+  let names = [];
+
+  for (let i = 0; i < arr.length; i += 1) {
+    names.push(arr[i].name);
+  }
+  return names;
+};
+
+// Map to names (version 2)
+const names = users.map(user => user.name);
