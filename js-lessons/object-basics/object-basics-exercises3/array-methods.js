@@ -5,6 +5,7 @@ let john = {name: "John", surname: "Smith", age: 25, id: 1};
 let pete = {name: "Pete", surname: "Hunt", age: 30, id: 2};
 let mary = {name: "Mary", surname: "Key", age: 28, id: 3};
 let users = [john, pete, mary];
+let users2 = [john, pete, mary];
 
 // Convert kebab-case to camelCase
 const camelize = (str) => {
@@ -109,3 +110,26 @@ const fullNameIds = users.map(user => {
     id: user.id
   };
 });
+
+// Sort users by age
+const sortByAge = (arr) => {
+  let ages = [];
+  let tempArr = [];
+  // Get ages from users
+  for (let i = 0; i < arr.length; i += 1) {
+    ages.push(arr[i].age);
+  }
+
+  for (let i = 0; i < arr.length; i += 1) {
+    if (arr[i].age === getMax(ages)) {
+      tempArr.push(arr.splice(i, 1)[0]);
+      ages.splice(i, 1);
+      i = -1;
+    }
+  }
+  arr.splice(0, 0, ...tempArr);
+  return arr;
+};
+
+// Sort users by age (version 2)
+const sortedByAge = users2.sort((a, b) => b.age - a.age);
