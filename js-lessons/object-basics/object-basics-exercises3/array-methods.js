@@ -165,3 +165,26 @@ const getUnique = (arr) => {
 
 // Filter an array and return an array of unique values (version 2)
 const uniqueArr = [...new Set(names2)];
+
+// Create keyed object from array
+const groupById = (arr) => {
+  let newArr = [];
+
+  for (let i = 0; i < arr.length; i += 1) {
+    newArr.push({
+      [`${arr[i].id}`]: {
+        ...arr[i],
+      }
+    });
+  }
+  return newArr;
+};
+
+// Create keyed object from array (version 2)
+const groupByIdV2 = users.map(user => {
+  return {
+    [`${user.id}`]: {
+      ...user,
+    }
+  };
+});
