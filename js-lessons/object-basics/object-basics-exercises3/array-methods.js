@@ -1,5 +1,6 @@
 let numbers = [5, 3, 8, 1];
 let numbers2 = [5, 2, 1, -10, 8];
+let techs = ["HTML", "JavaScript", "CSS"];
 
 // Convert kebab-case to camelCase
 const camelize = (str) => {
@@ -63,3 +64,10 @@ const sortDescending = (arr) => {
 
 // Sort in decreasing order (version 2)
 const sortedDescending = numbers2.sort((a, b) => b - a);
+
+// Copy and sort an array of strings
+const copyAndSort = (arr) => {
+  let copiedArr = arr.slice();
+  const sortedArr = copiedArr.sort((a, b) => a.localeCompare(b));
+  return sortedArr;
+};
