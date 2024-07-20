@@ -1,4 +1,5 @@
 let numbers = [5, 3, 8, 1];
+let numbers2 = [5, 2, 1, -10, 8];
 
 // Convert kebab-case to camelCase
 const camelize = (str) => {
@@ -45,3 +46,20 @@ const filterRangeV2 = (arr, a = 1, b = 2) => {
   })
   return filteredArr;
 };
+
+// Sort in decreasing order
+const sortDescending = (arr) => {
+  let tempArr = [];
+
+  for (let i = 0; i < arr.length; i += 1) {
+    if (arr[i] === getMax(arr)) {
+      tempArr.push(arr.splice(i, 1)[0]);
+      i = -1;
+    }
+  }
+  arr.splice(0, 0, ...tempArr);
+  return arr;
+};
+
+// Sort in decreasing order (version 2)
+const sortedDescending = numbers2.sort((a, b) => b - a);
