@@ -151,4 +151,17 @@ const getAverageAge = (arr) => {
 // Get average age (version 2)
 const average = Math.round(users.map(user => user.age).reduce((acc, cur) => acc + cur, 0) / users.length);
 
+// Filter an array and return an array of unique values
+const getUnique = (arr) => {
+  let filteredArr = [];
 
+  for (let i = 0; i < arr.length; i += 1) {
+    if (!(filteredArr.includes(arr[i]))) {
+      filteredArr.push(arr[i]);
+    }
+  }
+  return filteredArr;
+};
+
+// Filter an array and return an array of unique values (version 2)
+const uniqueArr = [...new Set(names2)];
