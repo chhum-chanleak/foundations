@@ -6,6 +6,9 @@ let pete = {name: "Pete", surname: "Hunt", age: 30, id: 2};
 let mary = {name: "Mary", surname: "Key", age: 28, id: 3};
 let users = [john, pete, mary];
 let users2 = [john, pete, mary];
+let names2 = ["Hare", "Krishna", "Hare", "Krishna",
+  "Krishna", "Krishna", "Hare", "Hare", ":-O"
+];
 
 // Convert kebab-case to camelCase
 const camelize = (str) => {
@@ -74,6 +77,7 @@ const sortedDescending = numbers2.sort((a, b) => b - a);
 const copyAndSort = (arr) => {
   let copiedArr = arr.slice();
   const sortedArr = copiedArr.sort((a, b) => a.localeCompare(b));
+
   return sortedArr;
 };
 
@@ -133,3 +137,18 @@ const sortByAge = (arr) => {
 
 // Sort users by age (version 2)
 const sortedByAge = users2.sort((a, b) => b.age - a.age);
+
+// Get average age 
+const getAverageAge = (arr) => {
+  let average = 0;
+
+  for (let i = 0; i < arr.length; i += 1) {
+    average += arr[i].age;
+  }
+  return Math.round(average / arr.length);
+};
+
+// Get average age (version 2)
+const average = Math.round(users.map(user => user.age).reduce((acc, cur) => acc + cur, 0) / users.length);
+
+
